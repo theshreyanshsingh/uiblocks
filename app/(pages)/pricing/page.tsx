@@ -11,7 +11,7 @@ const page: NextPage = () => {
     { text: "3+ templates, every month", coming: true },
     { text: "AI based component editor", coming: true },
     { text: "Commercial liscense" },
-    { text: "Same-day Email support" },
+    { text: "Priority Email support" },
   ];
 
   return (
