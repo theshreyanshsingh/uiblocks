@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Amazon from "../../../../(helpers)/list_assets/amazon.svg";
+import Amazon from "../../../../(helpers)/list_assets/Amazon.svg";
 import Canva from "../../../../(helpers)/list_assets/Canva.svg";
 import Figma from "../../../../(helpers)/list_assets/Figma.svg";
 import Google from "../../../../(helpers)/list_assets/Google.svg";
