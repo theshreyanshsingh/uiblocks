@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-geist-sans)"],
+        mono: ["var(--font-geist-mono)"],
+      },
       screens: {
         l: "0px",
         pn: "130px",
@@ -39,7 +43,7 @@ const config: Config = {
         },
       },
       backgroundImage: {
-        dots: "url('/assets/dots.svg')",
+        dots: "url('./assets/dots.svg')",
       },
     },
   },
