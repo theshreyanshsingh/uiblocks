@@ -25,8 +25,26 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /uiblocks
+            # Ensure the project directory exists
+            if [ ! -d "/home/${{ secrets.SERVER_USER }}/uiblocks" ]; then
+              echo "📁 Directory not found! Cloning repository..."
+              git clone https://github.com/theshreyanshsingh/uiblocks.git /home/${{ secrets.SERVER_USER }}/uiblocks
+            fi
+
+            # Navigate to the project
+            cd /home/${{ secrets.SERVER_USER }}/uiblocks
+
+            # Pull latest code
             git pull origin main
+
+            # Install dependencies
             npm install
+
+            # Build the project
             npm run build
-            pm2 restart uiblocks
+
+            # Restart the app using PM2
+            pm2 restart uiblocks || pm2 start npm --name "uiblocks" -- start
+
+            # Save PM2 process list (so it auto-starts after reboot)
+            pm2 save
