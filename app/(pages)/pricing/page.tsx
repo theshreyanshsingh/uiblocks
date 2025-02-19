@@ -1,7 +1,6 @@
 import Header from "@/app/_components/Header";
 import { NextPage } from "next";
 import React from "react";
-import { MdKeyboardArrowRight } from "react-icons/md";
 import { FaCheck } from "react-icons/fa6";
 import { AiOutlineSafety } from "react-icons/ai";
 import ComingSoon from "@/app/_components/ComingSoon";
@@ -30,7 +29,7 @@ const page: NextPage = () => {
                 Lifetime Access
               </p>
               <p className="text-black font-sans font-semibold text-sm">
-                Entrepreneur's Special •
+                Entrepreneur&rsquo;s Special •
                 <span className="text-violet-500 animate-pulse">
                   {" 91 spots left"}
                 </span>{" "}

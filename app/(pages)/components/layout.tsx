@@ -3,7 +3,7 @@ import Sidebar from "@/app/_components/Sidebar";
 import { NextPage } from "next";
 import React from "react";
 
-const layout: NextPage = ({ children }: React.PropsWithChildren<{}>) => {
+const layout: NextPage = ({ children }: React.PropsWithChildren<object>) => {
   return (
     <div className="bg-[#F7FAFC] bg-dots bg-repeat bg-contain justify-center h-screen p-4 space-y-4">
       {/* Header */}

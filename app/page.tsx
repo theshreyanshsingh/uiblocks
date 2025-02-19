@@ -3,7 +3,6 @@ import Header from "./_components/Header";
 import { SiTailwindcss } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { FaCheck } from "react-icons/fa6";
-import { AiOutlineEnter } from "react-icons/ai";
 import { BiLogoTypescript } from "react-icons/bi";
 import Link from "next/link";
 

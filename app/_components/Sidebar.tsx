@@ -21,7 +21,7 @@ const Sidebar: NextPage = () => {
         `/components/${components[0].name.toLowerCase().replace(/\s+/g, "-")}`
       );
     }
-  }, [slugName]);
+  }, [slugName, router]);
 
   return (
     <div className="sm:h-full justify-start items-center flex">

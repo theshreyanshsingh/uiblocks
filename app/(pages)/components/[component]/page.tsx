@@ -1,13 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
-import { MdOpenInFull } from "react-icons/md";
-import { codeColorize } from "@/app/(helpers)/codeColorize";
-import MainToast from "./_listOfComponents/Toast";
 import components from "@/app/(helpers)/List";
 import { useSession } from "next-auth/react";
+import { CodeHighlight } from "@/app/(helpers)/CodeHighlight";
 
-const page = () => {
+const Page = () => {
   const { status } = useSession();
 
   const path = usePathname();
@@ -90,7 +88,7 @@ const page = () => {
                 {List?.codeSnippets.map((code) =>
                   select === code.title ? (
                     <div key={code.title} className=" h-[74vh] mt-3">
-                      {codeColorize(code.code)}
+                      {CodeHighlight(code.code)}
                     </div>
                   ) : null
                 )}
@@ -107,4 +105,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

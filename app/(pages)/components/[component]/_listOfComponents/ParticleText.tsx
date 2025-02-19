@@ -1,6 +1,18 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+
+interface Particle {
+  x: number;
+  y: number;
+  radius: number;
+  speed: number;
+  color: string;
+  direction: {
+    x: number;
+    y: number;
+  };
+}
 
 interface ParticleProps {
   particleCount: number;
@@ -32,7 +44,7 @@ const ParticleText: React.FC<ParticleProps> = ({
   text2,
 }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [particles, setParticles] = useState<any[]>([]);
+  const [particles, setParticles] = useState<Particle[]>([]);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   // Initialize particles on mount
@@ -56,38 +68,33 @@ const ParticleText: React.FC<ParticleProps> = ({
   };
 
   // Particle animation logic
-  const animateParticles = (particle: any) => {
-    let newX = particle.x + particle.direction.x * particle.speed;
-    let newY = particle.y + particle.direction.y * particle.speed;
+  const animateParticles = useCallback(
+    (particle: Particle): Particle => {
+      let newX = particle.x + particle.direction.x * particle.speed;
+      let newY = particle.y + particle.direction.y * particle.speed;
+      const width = containerRef.current?.clientWidth || window.innerWidth;
+      const height = containerRef.current?.clientHeight || window.innerHeight;
 
-    const width = containerRef.current?.clientWidth || window.innerWidth;
-    const height = containerRef.current?.clientHeight || window.innerHeight;
+      if (newX < 0) newX = width;
+      if (newX > width) newX = 0;
+      if (newY < 0) newY = height;
+      if (newY > height) newY = 0;
 
-    // Wrap around screen
-    if (newX < 0) newX = width;
-    if (newX > width) newX = 0;
-    if (newY < 0) newY = height;
-    if (newY > height) newY = 0;
+      if (interactive) {
+        const dx = newX - mousePosition.x;
+        const dy = newY - mousePosition.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
-    // Optional: Add slight mouse influence
-    if (interactive) {
-      const dx = newX - mousePosition.x;
-      const dy = newY - mousePosition.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-
-      // Particles move away from mouse within a certain radius
-      if (distance < 100) {
-        newX += (dx / distance) * 2;
-        newY += (dy / distance) * 2;
+        if (distance < 100) {
+          newX += (dx / distance) * 2;
+          newY += (dy / distance) * 2;
+        }
       }
-    }
 
-    return {
-      ...particle,
-      x: newX,
-      y: newY,
-    };
-  };
+      return { ...particle, x: newX, y: newY };
+    },
+    [mousePosition, interactive]
+  );
 
   // Animate particles on each frame
   useEffect(() => {
@@ -98,7 +105,7 @@ const ParticleText: React.FC<ParticleProps> = ({
     });
 
     return () => cancelAnimationFrame(animationFrame);
-  }, [particles, mousePosition]);
+  }, [particles, mousePosition, animateParticles]);
 
   return (
     <div

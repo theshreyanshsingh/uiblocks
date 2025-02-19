@@ -1,15 +1,21 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Goku from "../../../../(helpers)/list_assets/goku.webp";
 import GokuUltra from "../../../../(helpers)/list_assets/gokultra.webp";
 
-const ImageReveal = ({ image1, image2 }: { image1: any; image2: any }) => {
+const ImageReveal = ({
+  image1,
+  image2,
+}: {
+  image1: string | StaticImageData;
+  image2: string | StaticImageData;
+}) => {
   const containerRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const handleMouseMove = (e: any) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (!containerRef.current) return;
 
     const rect = (

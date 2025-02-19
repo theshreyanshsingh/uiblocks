@@ -25,7 +25,13 @@ const GlowButton = ({ text }: { text: string }) => {
             animate={
               hovered
                 ? {
-                    "--angle": ["0deg", "90deg", "180deg", "270deg", "360deg"],
+                    ["--angle" as string]: [
+                      "0deg",
+                      "90deg",
+                      "180deg",
+                      "270deg",
+                      "360deg",
+                    ],
                   }
                 : {}
             }
@@ -41,10 +47,11 @@ const GlowButton = ({ text }: { text: string }) => {
             style={{
               backgroundImage:
                 "conic-gradient(from var(--angle), transparent 70%, pink)",
-              "--angle": "0deg",
+              ["--angle" as string]: "0deg",
             }}
             className="px-24 py-7 rounded-full transition-all duration-200"
           />
+
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#1a1a1a] hover:bg-gradient-to-b from-blue-800 to-purple-500 hover:text-white text-[#585757] px-14 py-[16px] rounded-full font-semibold font-poppins transition-all duration-200 whitespace-nowrap text-sm">
             {text}
           </div>

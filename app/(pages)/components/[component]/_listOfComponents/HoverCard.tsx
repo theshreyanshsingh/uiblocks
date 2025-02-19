@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { GoHeartFill } from "react-icons/go";
 import book from "@/app/(helpers)/list_assets/typewriter.png";
 
@@ -9,7 +9,7 @@ const HoverCard = ({
   name,
   description,
 }: {
-  image: any;
+  image: string | StaticImageData;
   name: string;
   description: string;
 }) => {
@@ -20,7 +20,7 @@ const HoverCard = ({
     setLiked(!liked);
   };
 
-  const handleMouseMove = (e: any) => {
+  const handleMouseMove = (e: React.MouseEvent) => {
     const card = e.currentTarget.getBoundingClientRect();
     const mouseX = e.clientX - card.left;
     const mouseY = e.clientY - card.top;

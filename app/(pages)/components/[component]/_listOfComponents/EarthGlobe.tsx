@@ -13,7 +13,7 @@ const EarthGlobe: React.FC = () => {
 
   useEffect(() => {
     if (!mountRef.current) return;
-
+    const mountNode = mountRef.current;
     // Scene setup
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x000015);
@@ -21,7 +21,7 @@ const EarthGlobe: React.FC = () => {
     // Camera setup
     const camera = new THREE.PerspectiveCamera(
       60,
-      mountRef.current.clientWidth / mountRef.current.clientHeight,
+      mountNode.clientWidth / mountNode.clientHeight,
       0.1,
       1000
     );
@@ -33,11 +33,8 @@ const EarthGlobe: React.FC = () => {
       logarithmicDepthBuffer: true,
     });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(
-      mountRef.current.clientWidth,
-      mountRef.current.clientHeight
-    );
-    mountRef.current.appendChild(renderer.domElement);
+    renderer.setSize(mountNode.clientWidth, mountNode.clientHeight);
+    mountNode.appendChild(renderer.domElement);
 
     // Load textures
     const textureLoader = new THREE.TextureLoader();
@@ -167,8 +164,8 @@ const EarthGlobe: React.FC = () => {
 
     // Handle window resizing
     const handleResize = () => {
-      const width = mountRef.current!.clientWidth;
-      const height = mountRef.current!.clientHeight;
+      const width = mountNode!.clientWidth;
+      const height = mountNode!.clientHeight;
 
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
@@ -191,8 +188,8 @@ const EarthGlobe: React.FC = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("wheel", handleWheel);
-      if (mountRef.current) {
-        mountRef.current.removeChild(renderer.domElement);
+      if (mountNode) {
+        mountNode.removeChild(renderer.domElement);
       }
       renderer.dispose();
     };

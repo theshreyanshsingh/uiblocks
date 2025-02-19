@@ -6,7 +6,7 @@ import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
 import { BsClipboard2 } from "react-icons/bs";
 import { FaCheck } from "react-icons/fa";
 
-export const codeColorize = (codeString: string) => {
+export const CodeHighlight = (codeString: string) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
