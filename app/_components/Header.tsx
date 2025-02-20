@@ -45,13 +45,13 @@ const Header = () => {
       </div>
 
       <div className="justify-center items-center flex space-x-3 w-auto">
-        <Link
+        {/* <Link
           href={"https://x.com/theonlyvasudev"}
           className="rounded-lg p-2 hover:bg-gray-100"
         >
           <RiTwitterXFill className="text-lg text-black" />
-        </Link>
-        <div>|</div>
+        </Link> */}
+        {/* <div>|</div> */}
         {status === "loading" ? (
           <AiOutlineLoading3Quarters className="animate-spin text-lg text-black" />
         ) : status === "authenticated" && session?.user?.name ? (
