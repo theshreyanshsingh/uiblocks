@@ -4,8 +4,8 @@ import MainAnimatedSocialProof from "../(pages)/components/[component]/_listOfCo
 import ButtonGroup from "../(pages)/components/[component]/_listOfComponents/ButtonGroup";
 import MainHoverCard from "../(pages)/components/[component]/_listOfComponents/HoverCard";
 import MainWaves from "../(pages)/components/[component]/_listOfComponents/Waves";
-import MainHorizontaltest from "../(pages)/components/[component]/_listOfComponents/HorizontalTestimonial";
-import MainVerticalTestimonials from "../(pages)/components/[component]/_listOfComponents/VerticalTestimonials";
+// import MainHorizontaltest from "../(pages)/components/[component]/_listOfComponents/HorizontalTestimonial";
+// import MainVerticalTestimonials from "../(pages)/components/[component]/_listOfComponents/VerticalTestimonials";
 import MainTypewriter from "../(pages)/components/[component]/_listOfComponents/Typewriter";
 import MainImageReveal from "../(pages)/components/[component]/_listOfComponents/ImageReveal";
 import MainScalebleImage from "../(pages)/components/[component]/_listOfComponents/ScalableImage";
@@ -174,7 +174,6 @@ const rawComponents: ComponentItem[] = [
         code: `
   import React from "react";
   import { motion } from "framer-motion";
-import MainParticleText from '../../../front/app/component/Particle';
   import Image from "next/image";
   import {Amazon, Canva, Figma, Google, Instagram, Mailchimp, Microsft} from "../assets";
   
@@ -890,250 +889,250 @@ import HoverCard from '@/app/component/HoverCard';
       },
     ],
   },
-  {
-    name: "Vertical Testimonials",
-    premium: false,
-    desc: "Animated vertical testimonials",
-    component: MainVerticalTestimonials,
+  // {
+  //   name: "Vertical Testimonials",
+  //   premium: false,
+  //   desc: "Animated vertical testimonials",
+  //   component: MainVerticalTestimonials,
 
-    codeSnippets: [
-      {
-        title: "Usage",
-        code: `
-  import React from "react";
-  import Testimonials from './VerticalTestimonials';
-  
-  interface Testimonial {
-    name: string;
-    text: string;
-  }
+  //   codeSnippets: [
+  //     {
+  //       title: "Usage",
+  //       code: `
+  // import React from "react";
+  // import Testimonials from './VerticalTestimonials';
 
-  const VerticalTestimonials: Testimonial[] = [
-    {
-      name: "Alice Johnson",
-      text: "Asteria UI is a game changer! Love the components.",
-    },
-    {
-      name: "David Smith",
-      text: "The UI is smooth, clean, and highly customizable!",
-    },
-    { name: "Sophia Lee", text: "Saves me hours of work. Highly recommend!" },
-    { name: "John Doe", text: "Absolutely stunning design system. Great work!" },
-    { name: "Emily Brown", text: "Perfect for my design projects. Love it!" },
-  ];
+  // interface Testimonial {
+  //   name: string;
+  //   text: string;
+  // }
 
-  const MainVerticalTestimonials: React.FC = () => {
-    return (
-      <div className="justify-center items-center flex">
-        <Testimonials testimonials={VerticalTestimonials} />
-      </div>
-    );
-  };
+  // const VerticalTestimonials: Testimonial[] = [
+  //   {
+  //     name: "Alice Johnson",
+  //     text: "Asteria UI is a game changer! Love the components.",
+  //   },
+  //   {
+  //     name: "David Smith",
+  //     text: "The UI is smooth, clean, and highly customizable!",
+  //   },
+  //   { name: "Sophia Lee", text: "Saves me hours of work. Highly recommend!" },
+  //   { name: "John Doe", text: "Absolutely stunning design system. Great work!" },
+  //   { name: "Emily Brown", text: "Perfect for my design projects. Love it!" },
+  // ];
 
-  export default MainVerticalTestimonials;
-          `,
-      },
-      {
-        title: "VerticalTestimonials.tsx",
-        code: `
-  import React from "react";
-  import { motion } from "framer-motion";
+  // const MainVerticalTestimonials: React.FC = () => {
+  //   return (
+  //     <div className="justify-center items-center flex">
+  //       <Testimonials testimonials={VerticalTestimonials} />
+  //     </div>
+  //   );
+  // };
 
-  const columnVariants = (direction: "up" | "down") => ({
-    animate: {
-      translateY: direction === "up" ? [-350, 0] : [0, -350],
-    },
-  });
+  // export default MainVerticalTestimonials;
+  //         `,
+  //     },
+  //     {
+  //       title: "VerticalTestimonials.tsx",
+  //       code: `
+  // import React from "react";
+  // import { motion } from "framer-motion";
 
-  interface Testimonial {
-    name: string;
-    text: string;
-  }
+  // const columnVariants = (direction: "up" | "down") => ({
+  //   animate: {
+  //     translateY: direction === "up" ? [-350, 0] : [0, -350],
+  //   },
+  // });
 
-  const VerticalTestimonials: React.FC<{ testimonials: Testimonial[] }> = ({
-    testimonials,
-  }) => {
-    return (
-      <div className="flex flex-col items-center overflow-hidden h-[500px] w-full mt-10">
-        <h2 className="text-white font-sans text-xl font-semibold mb-5">
-          What People Say
-        </h2>
+  // interface Testimonial {
+  //   name: string;
+  //   text: string;
+  // }
 
-        <div className="relative flex gap-6 w-full justify-center h-96 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-10 bg-gradient-to-b from-[#fff] to-transparent z-10" />
-          <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-[#fff] to-transparent z-10" />
+  // const VerticalTestimonials: React.FC<{ testimonials: Testimonial[] }> = ({
+  //   testimonials,
+  // }) => {
+  //   return (
+  //     <div className="flex flex-col items-center overflow-hidden h-[500px] w-full mt-10">
+  //       <h2 className="text-white font-sans text-xl font-semibold mb-5">
+  //         What People Say
+  //       </h2>
 
-          {[0, 1, 2, 3].map((colIdx) => (
-            <div
-              key={colIdx}
-              className="w-60 flex flex-col gap-6 overflow-hidden"
-            >
-              <motion.div
-                className="flex flex-col gap-6"
-                variants={columnVariants(colIdx % 2 === 0 ? "up" : "down")}
-                animate="animate"
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear",
-                  repeatType: "loop",
-                }}
-                style={{ willChange: "transform" }}
-              >
-                {testimonials.map((testimonial, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-gray-600 text-white p-5 rounded-lg w-auto"
-                  >
-                    <p className="italic">"{testimonial.text}"</p>
-                    <p className="mt-3 text-right text-gray-400">
-                      — {testimonial.name}
-                    </p>
-                  </div>
-                ))}
+  //       <div className="relative flex gap-6 w-full justify-center h-96 overflow-hidden">
+  //         <div className="absolute top-0 left-0 w-full h-10 bg-gradient-to-b from-[#fff] to-transparent z-10" />
+  //         <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-[#fff] to-transparent z-10" />
 
-                {testimonials.map((testimonial, idx) => (
-                  <div
-                    key={\`second-\${idx}\`}
-                    className="bg-gray-800 text-white p-5 rounded-lg w-56"
-                  >
-                    <p className="italic">"{testimonial.text}"</p>
-                    <p className="mt-3 text-right text-gray-400">
-                      — {testimonial.name}
-                    </p>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  };
+  //         {[0, 1, 2, 3].map((colIdx) => (
+  //           <div
+  //             key={colIdx}
+  //             className="w-60 flex flex-col gap-6 overflow-hidden"
+  //           >
+  //             <motion.div
+  //               className="flex flex-col gap-6"
+  //               variants={columnVariants(colIdx % 2 === 0 ? "up" : "down")}
+  //               animate="animate"
+  //               transition={{
+  //                 duration: 20,
+  //                 repeat: Infinity,
+  //                 ease: "linear",
+  //                 repeatType: "loop",
+  //               }}
+  //               style={{ willChange: "transform" }}
+  //             >
+  //               {testimonials.map((testimonial, idx) => (
+  //                 <div
+  //                   key={idx}
+  //                   className="bg-gray-600 text-white p-5 rounded-lg w-auto"
+  //                 >
+  //                   <p className="italic">"{testimonial.text}"</p>
+  //                   <p className="mt-3 text-right text-gray-400">
+  //                     — {testimonial.name}
+  //                   </p>
+  //                 </div>
+  //               ))}
 
-  export default VerticalTestimonials;
-          `,
-      },
-    ],
-  },
-  {
-    name: "Horizontal Testimonials",
-    component: MainHorizontaltest,
-    premium: false,
-    desc: "Horizontally Animated Testimonials",
-    codeSnippets: [
-      {
-        title: "Usage",
-        code: `
-  import React from "react";
-  
-  const MainHorizontaltest: React.FC = () => {
-    const testimonials: Testimonial[] = [
-      {
-        name: "Alice Johnson",
-        text: "Asteria UI has completely transformed the way I design interfaces. Highly recommended!",
-      },
-      {
-        name: "David Smith",
-        text: "The UI components are top-notch and save me so much time. Absolutely love it!",
-      },
-      {
-        name: "Sophia Lee",
-        text: "A must-have for developers and designers. The quality is simply outstanding!",
-      },
-      {
-        name: "John Doe",
-        text: "Asteria UI provides the best user experience. Great work by the team!",
-      },
-      {
-        name: "Emily Brown",
-        text: "The animations and smooth UI components are just perfect. Definitely worth it!",
-      },
-    ];
-  
-    return (
-      <div className="justify-center items-center flex">
-        <Horizontaltest testimonials={testimonials} />
-      </div>
-    );
-  };
-  
-  export default MainHorizontaltest;
-        `,
-      },
-      {
-        title: "HorizontalTestimonials.tsx",
-        code: `
-  import React from "react";
-  import { motion } from "framer-motion";
-  
-  interface Testimonial {
-    name: string;
-    text: string;
-  }
-  
-  const Horizontaltest: React.FC<{ testimonials: Testimonial[] }> = ({
-    testimonials,
-  }) => {
-    return (
-      <div className="flex justify-center items-center flex-col overflow-hidden">
-        <h2 className="text-white font-sans text-xl font-semibold mb-8">
-          What People Say
-        </h2>
-  
-        <div className="relative w-full overflow-hidden">
-          <div className="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-[#0D1117] to-transparent z-10" />
-          <div className="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-[#0D1117] to-transparent z-10" />
-  
-          <div className="relative overflow-hidden">
-            <div className="flex">
-              <motion.div
-                className="flex gap-6 shrink-0"
-                animate={{
-                  translateX: [0, -1240],
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear",
-                  repeatType: "loop",
-                }}
-                style={{ willChange: "transform" }}
-              >
-                {testimonials.map((testimonial, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-gray-800 text-white p-5 rounded-lg w-80 shrink-0"
-                  >
-                    <p className="italic">"{testimonial.text}"</p>
-                    <p className="mt-3 text-right text-gray-400">
-                      — {testimonial.name}
-                    </p>
-                  </div>
-                ))}
-  
-                {testimonials.map((testimonial, idx) => (
-                  <div
-                    key={\`second-\${idx}\`}
-                    className="bg-gray-800 text-white p-5 rounded-lg w-80 shrink-0"
-                  >
-                    <p className="italic">"{testimonial.text}"</p>
-                    <p className="mt-3 text-right text-gray-400">
-                      — {testimonial.name}
-                    </p>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-        `,
-      },
-    ],
-  },
+  //               {testimonials.map((testimonial, idx) => (
+  //                 <div
+  //                   key={\`second-\${idx}\`}
+  //                   className="bg-gray-800 text-white p-5 rounded-lg w-56"
+  //                 >
+  //                   <p className="italic">"{testimonial.text}"</p>
+  //                   <p className="mt-3 text-right text-gray-400">
+  //                     — {testimonial.name}
+  //                   </p>
+  //                 </div>
+  //               ))}
+  //             </motion.div>
+  //           </div>
+  //         ))}
+  //       </div>
+  //     </div>
+  //   );
+  // };
+
+  // export default VerticalTestimonials;
+  //         `,
+  //     },
+  //   ],
+  // },
+  // {
+  //   name: "Horizontal Testimonials",
+  //   component: MainHorizontaltest,
+  //   premium: false,
+  //   desc: "Horizontally Animated Testimonials",
+  //   codeSnippets: [
+  //     {
+  //       title: "Usage",
+  //       code: `
+  // import React from "react";
+
+  // const MainHorizontaltest: React.FC = () => {
+  //   const testimonials: Testimonial[] = [
+  //     {
+  //       name: "Alice Johnson",
+  //       text: "Asteria UI has completely transformed the way I design interfaces. Highly recommended!",
+  //     },
+  //     {
+  //       name: "David Smith",
+  //       text: "The UI components are top-notch and save me so much time. Absolutely love it!",
+  //     },
+  //     {
+  //       name: "Sophia Lee",
+  //       text: "A must-have for developers and designers. The quality is simply outstanding!",
+  //     },
+  //     {
+  //       name: "John Doe",
+  //       text: "Asteria UI provides the best user experience. Great work by the team!",
+  //     },
+  //     {
+  //       name: "Emily Brown",
+  //       text: "The animations and smooth UI components are just perfect. Definitely worth it!",
+  //     },
+  //   ];
+
+  //   return (
+  //     <div className="justify-center items-center flex">
+  //       <Horizontaltest testimonials={testimonials} />
+  //     </div>
+  //   );
+  // };
+
+  // export default MainHorizontaltest;
+  //       `,
+  //     },
+  //     {
+  //       title: "HorizontalTestimonials.tsx",
+  //       code: `
+  // import React from "react";
+  // import { motion } from "framer-motion";
+
+  // interface Testimonial {
+  //   name: string;
+  //   text: string;
+  // }
+
+  // const Horizontaltest: React.FC<{ testimonials: Testimonial[] }> = ({
+  //   testimonials,
+  // }) => {
+  //   return (
+  //     <div className="flex justify-center items-center flex-col overflow-hidden">
+  //       <h2 className="text-white font-sans text-xl font-semibold mb-8">
+  //         What People Say
+  //       </h2>
+
+  //       <div className="relative w-full overflow-hidden">
+  //         <div className="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-[#0D1117] to-transparent z-10" />
+  //         <div className="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-[#0D1117] to-transparent z-10" />
+
+  //         <div className="relative overflow-hidden">
+  //           <div className="flex">
+  //             <motion.div
+  //               className="flex gap-6 shrink-0"
+  //               animate={{
+  //                 translateX: [0, -1240],
+  //               }}
+  //               transition={{
+  //                 duration: 20,
+  //                 repeat: Infinity,
+  //                 ease: "linear",
+  //                 repeatType: "loop",
+  //               }}
+  //               style={{ willChange: "transform" }}
+  //             >
+  //               {testimonials.map((testimonial, idx) => (
+  //                 <div
+  //                   key={idx}
+  //                   className="bg-gray-800 text-white p-5 rounded-lg w-80 shrink-0"
+  //                 >
+  //                   <p className="italic">"{testimonial.text}"</p>
+  //                   <p className="mt-3 text-right text-gray-400">
+  //                     — {testimonial.name}
+  //                   </p>
+  //                 </div>
+  //               ))}
+
+  //               {testimonials.map((testimonial, idx) => (
+  //                 <div
+  //                   key={\`second-\${idx}\`}
+  //                   className="bg-gray-800 text-white p-5 rounded-lg w-80 shrink-0"
+  //                 >
+  //                   <p className="italic">"{testimonial.text}"</p>
+  //                   <p className="mt-3 text-right text-gray-400">
+  //                     — {testimonial.name}
+  //                   </p>
+  //                 </div>
+  //               ))}
+  //             </motion.div>
+  //           </div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // };
+  //       `,
+  //     },
+  //   ],
+  // },
   {
     name: "Waves Effect",
     desc: "Animated Background waves with text",
