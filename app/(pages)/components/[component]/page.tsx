@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import components from "@/app/(helpers)/List";
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 import { CodeHighlight } from "@/app/(helpers)/CodeHighlight";
 
 const Page = () => {
-  const { status } = useSession();
+  // const { status } = useSession();
 
   const path = usePathname();
 

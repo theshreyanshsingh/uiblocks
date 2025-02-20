@@ -1,15 +1,15 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { RiTwitterXFill } from "react-icons/ri";
+// import { RiTwitterXFill } from "react-icons/ri";
 import ComingSoon from "./ComingSoon";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
+// import { signIn, signOut, useSession } from "next-auth/react";
+// import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const Header = () => {
-  const { data: session, status } = useSession();
-  const getFirstLetterCapitalized = (name: string) =>
-    name?.trim().charAt(0).toUpperCase() || "";
+  // const { data: session, status } = useSession();
+  // const getFirstLetterCapitalized = (name: string) =>
+  //   name?.trim().charAt(0).toUpperCase() || "";
 
   return (
     <header className="bg-white p-2 sm:p-3 rounded-2xl justify-between items-center flex shadow-sm">
