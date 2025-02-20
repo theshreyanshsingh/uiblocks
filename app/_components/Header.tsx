@@ -52,7 +52,7 @@ const Header = () => {
           <RiTwitterXFill className="text-lg text-black" />
         </Link> */}
         {/* <div>|</div> */}
-        {status === "loading" ? (
+        {/* {status === "loading" ? (
           <AiOutlineLoading3Quarters className="animate-spin text-lg text-black" />
         ) : status === "authenticated" && session?.user?.name ? (
           <button
@@ -68,7 +68,7 @@ const Header = () => {
           >
             Sign in
           </button>
-        )}
+        )} */}
 
         {/* <Link
           href={"/pricing"}

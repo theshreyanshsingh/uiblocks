@@ -21,7 +21,7 @@ const Page = () => {
   );
 
   return (
-    <div className="h-full w-full sm:px-2 space-x-2 justify-evenly items-center flex sm:flex-row flex-col pn:max-sm:space-y-5">
+    <div className="h-full sm:h-screen w-full sm:px-2 space-x-2 justify-evenly items-center flex sm:flex-row flex-col pn:max-sm:space-y-5">
       {List?.component ? (
         <>
           {/* Center - Preview */}
@@ -76,13 +76,13 @@ const Page = () => {
               {/* Code Display */}
               <div className="relative">
                 {/* Blur */}
-                {status !== "authenticated" && (
+                {/* {status !== "authenticated" && (
                   <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-xl z-10 justify-center items-center flex">
                     <div className="text-white text-sm font-sans font-semibold">
                       Sign in to get the code
                     </div>
                   </div>
-                )}
+                )} */}
                 {List?.codeSnippets.map((code) =>
                   select === code.title ? (
                     <div key={code.title} className=" h-[74vh] mt-3">
