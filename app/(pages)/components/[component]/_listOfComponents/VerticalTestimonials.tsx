@@ -23,10 +23,10 @@ const Testimonials: React.FC<{ testimonials: Testimonial[] }> = ({
         <div className="absolute top-0 left-0 w-full h-10 bg-gradient-to-b from-[#fff] to-transparent z-10" />
         <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-[#fff] to-transparent z-10" />
 
-        {[0, 1, 2, 3].map((colIdx) => (
+        {[0, 1, 2].map((colIdx) => (
           <div
             key={colIdx}
-            className="w-60 flex flex-col gap-6 overflow-hidden"
+            className="w-full flex flex-col gap-6 overflow-hidden"
           >
             <motion.div
               className="flex flex-col gap-6"
@@ -43,22 +43,10 @@ const Testimonials: React.FC<{ testimonials: Testimonial[] }> = ({
               {testimonials.map((testimonial, idx) => (
                 <div
                   key={`first-${idx}`}
-                  className="bg-gray-800 text-white p-5 rounded-lg w-56"
+                  className="bg-gray-800 font-sans text-balance font-medium pn:max-sm:text-xs text-white p-5 rounded-lg w-full"
                 >
                   <p className="italic">&quot;{testimonial.text}&quot;</p>
-                  <p className="mt-3 text-right text-gray-400">
-                    &mdash; {testimonial.name}
-                  </p>
-                </div>
-              ))}
-
-              {testimonials.map((testimonial, idx) => (
-                <div
-                  key={`second-${idx}`}
-                  className="bg-gray-800 text-white p-5 rounded-lg w-56"
-                >
-                  <p className="italic">&quot;{testimonial.text}&quot;</p>
-                  <p className="mt-3 text-right text-gray-400">
+                  <p className="mt-3 text-right pn:max-sm:text-xs text-gray-400">
                     &mdash; {testimonial.name}
                   </p>
                 </div>

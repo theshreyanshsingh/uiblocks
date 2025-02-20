@@ -37,7 +37,7 @@ const Horizontaltest: React.FC<{ testimonials: Testimonial[] }> = ({
               {testimonials.map((testimonial, idx) => (
                 <div
                   key={idx}
-                  className="bg-gray-800 text-white p-5 rounded-lg w-80 shrink-0"
+                  className="bg-gray-500 text-white p-5 rounded-lg w-80 shrink-0"
                 >
                   <p className="italic">&quot;{testimonial.text}&quot;</p>
                   <p className="mt-3 text-right text-gray-400">
@@ -49,7 +49,7 @@ const Horizontaltest: React.FC<{ testimonials: Testimonial[] }> = ({
               {testimonials.map((testimonial, idx) => (
                 <div
                   key={`second-${idx}`}
-                  className="bg-gray-800 text-white p-5 rounded-lg w-56"
+                  className="bg-gray-500 text-white p-5 rounded-lg w-56"
                 >
                   <p className="italic">&quot;{testimonial.text}&quot;</p>
                   <p className="mt-3 text-right text-gray-400">

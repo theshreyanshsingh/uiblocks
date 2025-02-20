@@ -105,7 +105,7 @@ const MainToast: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex sm:flex-row flex-col pn:max-sm:space-y-5 justify-center items-center">
       <button
         onClick={() => showToast("Data saved successfully!", "success")}
         className="px-3 py-2 text-white bg-black rounded-xl text-xs font-sans font-semibold"

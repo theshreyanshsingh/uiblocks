@@ -200,14 +200,7 @@ const EarthGlobe: React.FC = () => {
 
 const MainEarthGlobe: React.FC = () => {
   return (
-    <div
-      style={{
-        width: "50vw",
-        height: "50vh",
-        borderRadius: "20px",
-        overflow: "hidden",
-      }}
-    >
+    <div className="w-full h-1/2 overflow-hidden rounded-xl">
       <EarthGlobe />
     </div>
   );

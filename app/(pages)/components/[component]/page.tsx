@@ -25,7 +25,7 @@ const Page = () => {
       {List?.component ? (
         <>
           {/* Center - Preview */}
-          <div className="flex flex-col h-full bg-white rounded-xl p-6 w-full sm:w-[52vw]">
+          <div className="flex flex-col h-full bg-white rounded-xl p-6 w-full sm:w-[52vw] space-y-5">
             {/* Head */}
             <div className="space-y-7">
               <div className="flex  justify-start items-center w-full">
@@ -39,7 +39,7 @@ const Page = () => {
             </div>
 
             {/* Component */}
-            <div className="flex-grow flex justify-center items-center p-4">
+            <div className="flex-grow flex justify-center items-center p-4 h-full overflow-hidden bg-white rounded-xl">
               <List.component />
             </div>
           </div>
@@ -74,17 +74,15 @@ const Page = () => {
               </div>
 
               {/* Code Display */}
-
               <div className="relative">
                 {/* Blur */}
-                {status === "loading" ||
-                  (status === "unauthenticated" && (
-                    <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-xl z-10 justify-center items-center flex">
-                      <div className="text-white text-sm font-sans font-semibold">
-                        Sign in to get the code
-                      </div>
+                {status !== "authenticated" && (
+                  <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm rounded-xl z-10 justify-center items-center flex">
+                    <div className="text-white text-sm font-sans font-semibold">
+                      Sign in to get the code
                     </div>
-                  ))}
+                  </div>
+                )}
                 {List?.codeSnippets.map((code) =>
                   select === code.title ? (
                     <div key={code.title} className=" h-[74vh] mt-3">

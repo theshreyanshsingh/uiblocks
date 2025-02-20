@@ -127,7 +127,7 @@ const GlowyButton = ({
 // ** ButtonGroup Component to Render All Buttons **
 const ButtonGroup: React.FC = () => {
   return (
-    <div className="grid grid-cols-3 gap-16">
+    <div className="grid sm:grid-cols-3 grid-cols-1 gap-16 pn:max-sm:h-full">
       <GlowButton text="Glow Button" />
       <div className="flex justify-center items-center h-full ">
         <HoverGradient text="Glow Button" />

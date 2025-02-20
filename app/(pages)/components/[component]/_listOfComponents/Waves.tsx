@@ -87,7 +87,7 @@ const Waves: React.FC<WavesProps> = ({ text }) => {
       />
 
       <motion.div
-        className="absolute text-white text-5xl font-sans font-semibold text-center"
+        className="absolute text-white text-2xl text-balance sm:text-5xl font-sans font-semibold text-center"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}

@@ -22,7 +22,7 @@ const Tooltip: React.FC<TooltipProps> = ({ images }) => {
   const [activeTooltip, setActiveTooltip] = useState<number | null>(null);
 
   return (
-    <div className="p-8">
+    <div className="p-8 flex">
       <div className="flex">
         {images.map((image, index) => (
           <div
@@ -79,10 +79,8 @@ const MainTooltip: React.FC = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center h-full  -mt-20">
-      <div className="  flex justify-center items-center mx-44 space-x-32">
-        <Tooltip images={images} />
-      </div>
+    <div className="flex justify-center items-center mx-44 space-x-32">
+      <Tooltip images={images} />
     </div>
   );
 };

@@ -35,17 +35,17 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   }, [words.length, interval]); // Only trigger effect when words or interval changes
 
   return (
-    <div className="relative w-full h-full rounded-lg overflow-hidden">
+    <div className="relative w-full h-20 rounded-lg overflow-hidden">
       {/* Text Animation */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
-        <h1 className="text-5xl font-poppins font-semibold flex items-center space-x-4 px-6 py-2 rounded-md">
+      <div className="absolute inset-0 flex items-center justify-center z-10 whitespace-nowrap">
+        <h1 className="md:text-5xl text-lg font-poppins font-semibold flex items-center space-x-4 px-6 py-2 rounded-md">
           {/* Static part of the text */}
           <span className="text-black py-2 rounded-md inline-block">
             {text}
           </span>
 
           {/* Animated part */}
-          <div className="w-[200px]">
+          <div className="w-[100px]">
             <AnimatePresence mode="wait">
               <motion.span
                 key={words[index]} // Unique key for re-mounting animation

@@ -135,10 +135,10 @@ const ParticleText: React.FC<ParticleProps> = ({
         />
       ))}
 
-      <div className="flex-col flex justify-center items-center h-full">
+      <div className="flex-col flex justify-center items-center h-full px-2">
         {/* Main Heading */}
         <motion.div
-          className="text-6xl font-bold mb-7 font-sans text-white"
+          className="text-2xl sm:text-6xl font-bold mb-7 font-sans text-white"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -148,7 +148,7 @@ const ParticleText: React.FC<ParticleProps> = ({
 
         {/* Subtext */}
         <motion.div
-          className="text-lg font-sans text-gray-200"
+          className="text-sm sm:text-lg font-sans text-gray-200"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}

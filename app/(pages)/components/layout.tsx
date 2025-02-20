@@ -5,7 +5,7 @@ import React from "react";
 
 const layout: NextPage = ({ children }: React.PropsWithChildren<object>) => {
   return (
-    <div className="bg-[#F7FAFC] bg-dots bg-repeat bg-contain justify-center h-screen p-4 space-y-4">
+    <div className="bg-[#F7FAFC] bg-dots bg-repeat bg-contain justify-center h-full p-4 space-y-4">
       {/* Header */}
       <div className=" w-full">
         <Header />
@@ -16,7 +16,7 @@ const layout: NextPage = ({ children }: React.PropsWithChildren<object>) => {
           <Sidebar />
         </div>
         {/* Content below the nav */}
-        <div className="flex-grow overflow-auto sm:w-[85vw]">{children}</div>
+        <div className="flex-grow overflow-hidden sm:w-[85vw]">{children}</div>
       </div>
     </div>
   );

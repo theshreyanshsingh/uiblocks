@@ -40,10 +40,10 @@ const FallingBeam: React.FC<FallingBeamProps> = ({
   }, [beamCount]);
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden rounded-xl">
       <div
         ref={containerRef}
-        className={`relative w-[950px] h-[450px] ${backgroundColor}`}
+        className={`relative pn:max-sm:w-[400px] w-[1000px] h-[450px] ${backgroundColor}`}
       >
         {beams.map((beam, index) => (
           <motion.div
@@ -68,7 +68,7 @@ const FallingBeam: React.FC<FallingBeamProps> = ({
             }}
           />
         ))}
-        <div className="flex justify-center items-center h-full text-6xl font-sans font-bold text-white">
+        <div className="flex justify-center items-center h-full text-xl sm:text-6xl font-sans font-bold text-white">
           {text}
         </div>
       </div>
@@ -78,7 +78,7 @@ const FallingBeam: React.FC<FallingBeamProps> = ({
 
 const MainFallingBeam: React.FC = () => {
   return (
-    <div className="justify-center items-center flex rounded-xl overflow-hidden">
+    <div className="justify-center items-center flex rounded-xl overflow-hidden h-full w-full">
       <FallingBeam
         text="Falling Beams"
         beamCount={100}
