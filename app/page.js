@@ -25,6 +25,7 @@ import {
   ArrowDown,
 } from "lucide-react";
 
+let api = process.env.NEXT_PUBLIC_API;
 /**
  * UIBlocks Landing Page
  *
@@ -221,6 +222,52 @@ function NavLinks({ mobile = false, onClick = () => {}, theme = "light" }) {
  * Main landing section with headline, description, and product preview
  */
 function HeroSection() {
+  const [email, setEmail] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    setStatus(null);
+
+    if (!email) {
+      setStatus("error");
+
+      return;
+    }
+
+    try {
+      const response = await fetch(`${api}/waitlist`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        setEmail("");
+        setIsSubmitted(true);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
+
+    setIsSubmitted(false);
+  };
+
+  useEffect(() => {
+    setInterval(() => {
+      setStatus(null);
+    }, 4000);
+  }, [status]);
+
   return (
     <section className="container mx-auto px-4 py-16 md:py-24 relative">
       <div className="max-w-3xl mx-auto text-center">
@@ -252,13 +299,49 @@ function HeroSection() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <motion.input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
             type="email"
             placeholder="Enter your email"
             className="px-5 p-3 bg-[#141415] rounded-xl focus:outline-none text-sm text-gray-300 w-80 font-sans font-semibold"
           />
-          <button className="bg-white text-black text-sm font-sans font-semibold px-3 py-2 rounded-xl">
-            Join the Waitlist
-          </button>
+          {isSubmitted ? (
+            <motion.div
+              className={cn("bg-violet-500/10 p-4 rounded-lg  text-center")}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h3 className="text-sm font-medium text-violet-400 mb-1">
+                You&apos;re on the list!
+              </h3>
+              <p className="text-xs text-violet-500">
+                We&apos;ll notify you when UIBlocks is ready for early access.
+              </p>
+            </motion.div>
+          ) : (
+            <>
+              <button
+                onClick={handleSubmit}
+                className="bg-white text-black text-sm font-sans font-semibold px-3 py-2 rounded-xl"
+              >
+                Join the Waitlist
+              </button>
+            </>
+          )}
+          {status === "error" && (
+            <motion.div
+              className={cn("bg-violet-500/10 p-4 rounded-lg  text-center")}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <h3 className="text-sm font-medium text-violet-400 mb-1">
+                Something went wrong!
+              </h3>
+            </motion.div>
+          )}
         </motion.div>
       </div>
 
@@ -388,7 +471,7 @@ function ProblemSection({ theme }) {
               UI Development Is <span className="text-violet-500">Broken</span>
             </h2>
             <p className="text-[#92929A]">
-              Let's be honest about what building interfaces is really like
+              Let&apos;s be honest about what building interfaces is really like
               today.
             </p>
           </div>
@@ -414,7 +497,7 @@ function ProblemSection({ theme }) {
                         {item.description}
                       </p>
                       <div className="mt-4 text-xs text-gray-300 italic border-t border-[#201F22] pt-3">
-                        "{item.quote}"
+                        &quot;{item.quote}&quot;
                       </div>
                     </CardContent>
                   </Card>
@@ -937,7 +1020,7 @@ function ComparisonSection({ theme }) {
               >
                 <CardContent className="p-5">
                   <h3 className="text-base font-semibold text-white mb-4">
-                    What You'll Build With UIBlocks
+                    What You&apos;ll Build With UIBlocks
                   </h3>
                   <div className="grid grid-cols-2 gap-4">
                     {buildItems.map((item, index) => (
@@ -1419,16 +1502,6 @@ function WaitlistSection({ theme }) {
                 </motion.div>
               ))}
             </div>
-
-            {/* Spots Left */}
-            <div className="mt-8 pt-6 border-t border-[#201F22] text-center">
-              <p className="text-sm text-[#A1A1AA]">
-                <span className="font-semibold text-violet-500">
-                  Only 127 spots left
-                </span>{" "}
-                for early access. Join now before we reach capacity.
-              </p>
-            </div>
           </div>
         </FadeInSection>
       </div>
@@ -1659,11 +1732,11 @@ function WorkflowDemo({ theme }) {
                       )}
                     >
                       <p className="text-sm text-[#CCCCCC]">
-                        "I need a pricing section for my SaaS product with 3
-                        tiers (Basic, Pro, Enterprise). It should have a clean,
-                        modern design with our brand colors (purple primary,
-                        slate secondary). Each plan should show features and
-                        have a prominent CTA button."
+                        &quot;I need a pricing section for my SaaS product with
+                        3 tiers (Basic, Pro, Enterprise). It should have a
+                        clean, modern design with our brand colors (purple
+                        primary, slate secondary). Each plan should show
+                        features and have a prominent CTA button.&quot;
                       </p>
                     </div>
                     <p className="text-sm text-[#92929A] mt-3">
@@ -1706,10 +1779,10 @@ function WorkflowDemo({ theme }) {
                         </span>
                       </div>
                       <p className="text-xs text-[#CCCCCC] mb-4">
-                        I'll create a pricing section with 3 tiers (Basic, Pro,
-                        Enterprise) using a clean, modern design with purple as
-                        the primary color and slate as secondary. Each plan will
-                        include features and a CTA button.
+                        I&apos;ll create a pricing section with 3 tiers (Basic,
+                        Pro, Enterprise) using a clean, modern design with
+                        purple as the primary color and slate as secondary. Each
+                        plan will include features and a CTA button.
                       </p>
 
                       {/* Generating Variants */}
@@ -1722,9 +1795,9 @@ function WorkflowDemo({ theme }) {
                         </span>
                       </div>
                       <p className="text-xs text-[#CCCCCC]">
-                        I've generated 3 different pricing section designs that
-                        match your requirements. You can view and select your
-                        preferred variant in the next step.
+                        I&apos;ve generated 3 different pricing section designs
+                        that match your requirements. You can view and select
+                        your preferred variant in the next step.
                       </p>
                     </div>
                   </div>
@@ -2531,17 +2604,45 @@ function WaitlistForm({ theme }) {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [status, setStatus] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setStatus(null);
+
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    if (!email) {
+      setStatus("error");
+
+      return;
+    }
+
+    try {
+      const response = await fetch(`${api}/waitlist`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        setEmail("");
+        setIsSubmitted(true);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      setStatus("error");
+    }
 
     setIsSubmitting(false);
-    setIsSubmitted(true);
-    setEmail("");
+    setIsSubmitted(false);
   };
 
   if (isSubmitted) {
@@ -2556,11 +2657,29 @@ function WaitlistForm({ theme }) {
         transition={{ duration: 0.3 }}
       >
         <h3 className="text-sm font-medium text-violet-400 mb-1">
-          You're on the list!
+          You&apos;re on the list!
         </h3>
         <p className="text-xs text-violet-500">
-          We'll notify you when UIBlocks is ready for early access.
+          We&apos;ll notify you when UIBlocks is ready for early access.
         </p>
+      </motion.div>
+    );
+  }
+
+  if (status === "error") {
+    return (
+      <motion.div
+        className={cn(
+          "bg-violet-500/10 p-4 rounded-lg  text-center",
+          theme === "doodle" && "border-2 border-dashed"
+        )}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+      >
+        <h3 className="text-sm font-medium text-violet-400 mb-1">
+          Something went wrong!
+        </h3>
       </motion.div>
     );
   }
