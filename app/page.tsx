@@ -294,7 +294,7 @@ const Page = () => {
                   <option value="next">Next.js</option>
                   <option value="react">React</option>
                   <option value="vue">Vue.js</option>
-                  <option value="vue">Basic HTML</option>
+                  <option value="Basic HTML">Basic HTML</option>
                 </select>
                 <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
                   <svg
@@ -325,7 +325,7 @@ const Page = () => {
                   <option value="tailwind">Tailwind CSS</option>
                   <option value="css">CSS</option>
                   <option value="sass">SASS</option>
-                  <option value="sass">Styled Components</option>
+                  <option value="Styled Components">Styled Components</option>
                 </select>
                 <div className="absolute top-1/2 right-3 -translate-y-1/2 flex items-center pointer-events-none">
                   <svg
